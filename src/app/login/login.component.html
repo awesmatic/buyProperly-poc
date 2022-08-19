@@ -1,0 +1,41 @@
+<div>
+  <app-header></app-header>
+  <div class="login">
+    <div class="right">
+      <h1 class="title">Log In</h1>
+      <form
+        #loginForm="ngForm"
+        (ngSubmit)="getUserLoginData(loginForm.value)"
+        class="form"
+      >
+        <input
+          class="input"
+          type="text"
+          placeholder="Email"
+          name="email"
+          ngModel
+          required
+          #name="ngModel"
+          email
+        />
+        <!-- <span *ngIf="name.invalid && name.touched">
+          please enter a valid email</span
+        > -->
+        <input
+          class="input"
+          type="password"
+          placeholder="password"
+          ngModel
+          name="password"
+          required
+          #password="ngModel"
+        />
+        <button class="forget-password">Forget Password?</button>
+        <button class="button">Log In</button>
+        <button [disabled]="loginForm.invalid" class="new-account">
+          New here ? create a new account
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,61 @@
+.login {
+  /* border: 1px solid red; */
+  width: 100%;
+  /* margin: auto; */
+  display: flex;
+  /* border-radius: 10px; */
+  /* background-color: lightcoral; */
+  background-image: url("https://images.unsplash.com/photo-1497864149936-d3163f0c0f4b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80");
+  height: 90vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+}
+.right {
+  min-width: 20%;
+  border: 1px solid black;
+  margin: auto;
+  padding: 2rem;
+  background-color: rgb(225, 219, 173);
+  border-radius: 10px;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+}
+.input {
+  width: 100%;
+  margin: auto;
+  border-radius: 10px;
+  height: 2rem;
+  margin-top: 1rem;
+}
+.button {
+  width: 50%;
+  margin: auto;
+  border-radius: 15px;
+  height: 2rem;
+  cursor: pointer;
+}
+.forget-password {
+  display: flex;
+  justify-content: flex-end;
+  margin: 1rem;
+  border: none;
+  cursor: pointer;
+  background: none;
+}
+.new-account {
+  display: flex;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  background: none;
+  margin: 1rem;
+}

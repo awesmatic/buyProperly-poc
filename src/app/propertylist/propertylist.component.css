@@ -1,0 +1,56 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  /* border: 5px solid blue; */
+  margin: 5rem;
+}
+.property {
+  /* border: 1px solid red; */
+  width: 23rem;
+  height: 35rem;
+  margin: 1rem;
+  cursor: pointer;
+  background-color: antiquewhite;
+}
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+.image {
+  height: 16rem;
+}
+.project-details {
+  display: flex;
+  justify-content: space-around;
+}
+.project-details-info {
+  display: flex;
+  justify-content: space-around;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  /* border: 1px solid rgb(16, 6, 6); */
+}
+button {
+  width: 8rem;
+  height: 3rem;
+  border-radius: 10px;
+  background-color: rgb(225, 198, 21);
+  font-size: 1rem;
+  cursor: pointer;
+}
+h1 {
+  text-align: center;
+  margin: 0.5rem;
+}
+p {
+  margin: 0.8rem;
+  text-align: center;
+}

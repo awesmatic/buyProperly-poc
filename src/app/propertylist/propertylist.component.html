@@ -1,0 +1,32 @@
+<div>
+  <app-header></app-header>
+  <div class="container">
+    <div
+      *ngFor="let item of properties"
+      class="property"
+      [routerLink]="['/property-list/property-detail']"
+    >
+      <div class="image">
+        <img
+          src="https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?cs=srgb&dl=pexels-binyamin-mellish-186077.jpg&fm=jpg"
+          alt="1"
+        />
+      </div>
+      <h1>Multi Family Residential</h1>
+      <h1>value Added Property</h1>
+      <div class="project-details">
+        <p>Total Offering</p>
+        <p>Project Term</p>
+        <p>Projected Annual Roi</p>
+      </div>
+      <div class="project-details-info">
+        <p>200,000</p>
+        <p>3 years</p>
+        <p>36.6%</p>
+      </div>
+      <div class="button">
+        <button>Invest Now</button>
+      </div>
+    </div>
+  </div>
+</div>
