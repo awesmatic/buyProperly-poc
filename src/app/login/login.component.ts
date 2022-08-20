@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { LoginService } from '../services/login.service';
 
 @Component({
@@ -9,9 +10,14 @@ import { LoginService } from '../services/login.service';
 export class LoginComponent implements OnInit {
   constructor(private userLogin: LoginService) {}
 
-  getUserLoginData(data: any) {
-    this.userLogin.login(data).subscribe((result) => {
+  getUserLoginData(form: NgForm) {
+    const email = form.value.email;
+    const password = form.value.password;
+    console.log(email, password);
+
+    this.userLogin.login({ email, password }).subscribe((result) => {
       console.log(result);
+      form.resetForm();
     });
   }
 
