@@ -22,7 +22,7 @@ const routes: Routes = [
     // ],
   },
   {
-    path: 'property-list/property-detail',
+    path: 'property-detail',
     component: PropertyDetailsComponent,
   },
 ];

@@ -2,24 +2,19 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
-import { IProperty } from '../propertylist/property';
+import { PropertyDetailsModel } from '../property-details/propertyDetails.model';
 
 @Injectable({
   providedIn: 'root',
 })
-export class PropertyDataService {
-  url = 'https://alpha.buyproperly.ca/api/search/v1';
+export class PropertyDetailsService {
+  url =
+    'https://alpha.buyproperly.ca/api/property/v1/details/slurp/W-Airport-Blvd-Sugarland-Texas';
   constructor(private http: HttpClient) {}
 
-  // getPropertyDetails() {
-  //   return this.http.post(this.url, {
-  //     limit: 10,
-  //     offset: 0,
-  //   });
-  // }
-  getPropertyDetails(): Observable<IProperty[]> {
+  getPropertyDetails(): Observable<PropertyDetailsModel[]> {
     return this.http
-      .post<IProperty[]>(this.url, { limit: 10, offset: 0 })
+      .get<PropertyDetailsModel[]>(this.url)
       .pipe(catchError(this.handleError));
   }
 
