@@ -1,3 +1,9 @@
 {
-  "choose-language": "Choose Language"
+  "view-properties": "View Properties",
+  "login": "Login",
+  "logout": "Logout",
+  "email": "Email",
+  "password": "Password",
+  "forget-password": "Forget Password",
+  "new-hear-create-a-new-account": "New here ? Create a new account"
 }

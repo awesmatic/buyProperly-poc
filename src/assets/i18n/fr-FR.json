@@ -1,3 +1,9 @@
 {
-  "choose-language": "Choose French"
+  "view-properties": "Voir les propriétés",
+  "login": "Connexion",
+  "logout": "Se déconnecter",
+  "email": "E-mail",
+  "password": "Mot de passe",
+  "forget-password": "Mot de passe oublié",
+  "new-hear-create-a-new-account": "Nouvelle écoute ? Créer un nouveau compte"
 }

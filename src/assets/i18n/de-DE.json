@@ -1,3 +1,9 @@
 {
-  "choose-language": "Choose german"
+  "view-properties": "Eigenschaften anzeigen",
+  "login": "Anmeldung",
+  "logout": "Ausloggen",
+  "email": "Email",
+  "password": "Passwort",
+  "forget-password": "Passwort vergessen",
+  "new-hear-create-a-new-account": "Neu hören? Ein neues Konto erstellen"
 }

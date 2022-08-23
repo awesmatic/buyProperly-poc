@@ -6,7 +6,9 @@
     </div>
     <div class="details">
       <div>
-        <h2 [routerLink]="['/property-list']">View Properties</h2>
+        <h2 [routerLink]="['/property-list']">
+          {{ "view-properties" | translate }}
+        </h2>
       </div>
       <div class="buttons">
         <button
@@ -14,20 +16,19 @@
           class="loginButton"
           (click)="logoutHandler()"
         >
-          Logout
+          {{ "logout" | translate }}
         </button>
         <button
           *ngIf="!changeButton"
           class="loginButton"
           [routerLink]="['/login']"
         >
-          Login
+          {{ "login" | translate }}
         </button>
       </div>
       <div class="language-picker-area">
         <div class="picker-label">
-          {{ "choose-language" | translate }}
-          <!-- choose language -->
+          Choose Language
           <select (change)="selectLanguage($event)" class="language-picker">
             <option value="en-US">English</option>
             <option value="fr-FR">French</option>
