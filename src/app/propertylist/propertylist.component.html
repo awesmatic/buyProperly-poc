@@ -2,18 +2,21 @@
   <app-header></app-header>
   <div class="container">
     <div
-      *ngFor="let item of propertiesList | async"
+      *ngFor="
+        let item of propertiesList
+          | paginate
+            : { itemsPerPage: tableSize, currentPage: page, totalItems: count };
+        let i = index
+      "
       class="property"
-      [routerLink]="['/property-list/property-detail']"
+      [routerLink]="['/property-detail/' + item.property_slurp]"
     >
       <div class="image">
-        <img
-          src="https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?cs=srgb&dl=pexels-binyamin-mellish-186077.jpg&fm=jpg"
-          alt="1"
-        />
+        <img src="{{ item.img_src_main }} " alt="1" />
       </div>
-      <h1>Multi Family Residential</h1>
-      <h1>value Added Property</h1>
+      <h1 *ngIf="item.is_multi_family_residential">Multi Family Residential</h1>
+      <h1 *ngIf="item.is_preconstruction_property">Campground</h1>
+      <h1 class="black">value Added Property</h1>
       <div class="project-details">
         <p>Total Offering</p>
         <p>Project Term</p>
@@ -28,5 +31,12 @@
         <button>Invest Now</button>
       </div>
     </div>
+  </div>
+  <div class="pagination">
+    <pagination-controls
+      previousLabel="Prev"
+      nextLabel="Next"
+      (pageChange)="onTableDataChange($event)"
+    ></pagination-controls>
   </div>
 </div>

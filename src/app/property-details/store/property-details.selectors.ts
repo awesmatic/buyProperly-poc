@@ -4,9 +4,10 @@ import {
   ActionReducerMap,
 } from '@ngrx/store';
 import { PropertiesDetailsState } from './property-details.reducer';
+import * as fromPropertyDetails from './property-details.reducer';
 
 const getPropertyFeatureState = createFeatureSelector<PropertiesDetailsState>(
-  'propertiesDetailsState'
+  fromPropertyDetails.propertyDetailsFeatureKey
 );
 export const getProperties = createSelector(
   getPropertyFeatureState,

@@ -19,6 +19,7 @@ img {
 }
 .image {
   height: 16rem;
+  width: 100%;
 }
 .project-details {
   display: flex;
@@ -53,4 +54,15 @@ h1 {
 p {
   margin: 0.8rem;
   text-align: center;
+}
+.pagination {
+  margin-bottom: 5rem;
+  /* border: 2px solid red; */
+  display: flex;
+  justify-content: center;
+}
+.black {
+  background-color: black;
+  color: aliceblue;
+  padding: 0.8rem;
 }

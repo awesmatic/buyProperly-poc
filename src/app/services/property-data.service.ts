@@ -17,9 +17,11 @@ export class PropertyDataService {
   //     offset: 0,
   //   });
   // }
-  getPropertyDetails(): Observable<IProperty[]> {
+  getPropertyDetails(limit: any, offset: any): Observable<IProperty[]> {
+    console.log(limit, offset);
+
     return this.http
-      .post<IProperty[]>(this.url, { limit: 10, offset: 0 })
+      .post<IProperty[]>(this.url, { limit, offset })
       .pipe(catchError(this.handleError));
   }
 

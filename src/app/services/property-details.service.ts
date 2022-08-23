@@ -8,14 +8,13 @@ import { PropertyDetailsModel } from '../property-details/propertyDetails.model'
   providedIn: 'root',
 })
 export class PropertyDetailsService {
-  url =
-    'https://alpha.buyproperly.ca/api/property/v1/details/slurp/W-Airport-Blvd-Sugarland-Texas';
+  url = 'https://alpha.buyproperly.ca/api/property/v1/details/slurp/';
   constructor(private http: HttpClient) {}
 
-  getPropertyDetails(): Observable<PropertyDetailsModel[]> {
-    return this.http
-      .get<PropertyDetailsModel[]>(this.url)
-      .pipe(catchError(this.handleError));
+  getPropertyDetails(id: any): Observable<any> {
+    // console.log(id);
+
+    return this.http.get<any>(this.url + id).pipe(catchError(this.handleError));
   }
 
   private handleError(err: HttpErrorResponse) {

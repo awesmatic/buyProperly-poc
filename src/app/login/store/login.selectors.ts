@@ -1,8 +1,10 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { LoginState } from './login.reducer';
+import * as fromLogin from './login.reducer';
 
-const getPropertyFeatureState =
-  createFeatureSelector<LoginState>('propertiesState');
+const getPropertyFeatureState = createFeatureSelector<LoginState>(
+  fromLogin.loginFeatureKey
+);
 export const getLoginDetails = createSelector(
   getPropertyFeatureState,
   //   (state) => state.login

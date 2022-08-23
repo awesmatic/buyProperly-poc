@@ -7,6 +7,7 @@ import * as LoginActions from './store/login.actions';
 import * as fromLogin from './store/login.selectors';
 import { Observable } from 'rxjs';
 import * as fromReducer from './store/login.reducer';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -14,10 +15,13 @@ import * as fromReducer from './store/login.reducer';
 })
 export class LoginComponent implements OnInit {
   errorMessage = '';
-  loginDetails: Observable<LoginModel[]> | undefined;
+  loginDetails: any;
+  data: any;
+  // loginDetails: Observable<LoginModel[]> | undefined;
   constructor(
     private userLogin: LoginService,
-    private store: Store<fromReducer.LoginState>
+    private store: Store<fromReducer.LoginState>,
+    private route: Router
   ) {}
 
   getUserLoginData(form: NgForm) {
@@ -28,12 +32,16 @@ export class LoginComponent implements OnInit {
     this.store.dispatch(
       new LoginActions.LoadLogin({ email: email, password: password })
     );
-    // this.userLogin.login({ email, password }).subscribe((result) => {
-    //   console.log(result);
+    this.userLogin.getLoginDetails(email, password).subscribe((result) => {
+      this.loginDetails = result;
+      if (this.loginDetails) {
+        this.route.navigate(['/property-list']);
+      }
+      // console.log(result.data.jwttoken);
+      localStorage.setItem('user', JSON.stringify(result));
+    });
+    // this.loginDetails = this.store.select(fromLogin.getLoginDetails);
 
-    // });
-    this.loginDetails = this.store.select(fromLogin.getLoginDetails);
-    console.log(this.loginDetails);
     form.resetForm();
   }
 

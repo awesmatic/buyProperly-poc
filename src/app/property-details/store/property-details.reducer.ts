@@ -8,7 +8,7 @@ import {
 export const propertyDetailsFeatureKey = 'PropertiesDetailsState';
 
 export interface PropertiesDetailsState {
-  properties: PropertyDetailsModel[];
+  properties: any;
   error: string;
   loaded: boolean;
 }
@@ -29,7 +29,7 @@ export function propertiesDetailsReducer(
     case PropertyActionTypes.LoadPropertiesDetailsSuccess:
       return {
         ...state,
-        properties: [...action.payload],
+        properties: action.payload,
         error: '',
       };
     case PropertyActionTypes.LoadPropertiesDetailsFailure:

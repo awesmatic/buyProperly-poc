@@ -27,6 +27,10 @@ export class LoginService {
     // console.log('eeee', data.payload);
   }
 
+  getLoggedIn() {
+    return !!localStorage.getItem('user');
+  }
+
   private handleError(err: HttpErrorResponse) {
     let errorMessage = '';
     if (err.error instanceof ErrorEvent) {

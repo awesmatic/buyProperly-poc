@@ -30,16 +30,18 @@ export class PropertylistEffects {
   loadProperties$ = createEffect(() =>
     this.actions$.pipe(
       ofType(propertyActions.PropertyActionTypes.LoadProperties),
-      mergeMap((action) =>
-        this.propertiesListService.getPropertyDetails().pipe(
-          map(
-            (users) =>
-              new propertyActions.LoadPropertiesSuccess({ data: users })
-          ),
-          catchError((err) =>
-            of(new propertyActions.LoadPropertiesFailure({ error: err }))
+      mergeMap((data: propertyActions.LoadProperties) =>
+        this.propertiesListService
+          .getPropertyDetails(data.payload.limit, data.payload.offset)
+          .pipe(
+            map(
+              (users) =>
+                new propertyActions.LoadPropertiesSuccess({ data: users })
+            ),
+            catchError((err) =>
+              of(new propertyActions.LoadPropertiesFailure({ error: err }))
+            )
           )
-        )
       )
     )
   );

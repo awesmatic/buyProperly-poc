@@ -14,8 +14,11 @@ import * as fromPropertyList from './state/propertylist.reducer';
 })
 export class PropertylistComponent implements OnInit {
   errorMessage = '';
-  // propertiesList: IProperty[] = [];
-  propertiesList: Observable<IProperty[]> | undefined;
+  propertiesList: any = [];
+  page: number = 1;
+  count: number = 0;
+  tableSize: number = 10;
+  // propertiesList: Observable<IProperty[]> | undefined;
 
   constructor(
     private propertyDetails: PropertyDataService,
@@ -35,15 +38,30 @@ export class PropertylistComponent implements OnInit {
   ngOnInit(): void {
     // this.store.dispatch(new PropertyActions.LoadProperties());
 
-    this.store.dispatch(new PropertyActions.LoadProperties());
-    this.propertiesList = this.store.pipe(select(fromProperty.getProperties));
-    console.log(this.propertiesList);
+    // this.propertiesList = this.store.pipe(select(fromProperty.getProperties));
+    // console.log(this.propertiesList);
+    this.postList();
+  }
 
-    // this.store
-    //   .pipe(select(fromProperty.getProperties))
-    //   .subscribe((properties) => {
-    //     this.propertiesList = properties;
-    //     console.log(properties);
-    //   });
+  postList(): void {
+    this.store.dispatch(
+      new PropertyActions.LoadProperties({
+        limit: this.tableSize,
+        offset: this.page - 1,
+      })
+    );
+    this.store
+      .pipe(select(fromProperty.getProperties))
+      .subscribe((properties) => {
+        this.propertiesList = properties.data;
+        console.log(properties);
+        this.count = properties.totalCount;
+      });
+  }
+
+  onTableDataChange(event: any) {
+    this.page = event;
+    this.postList();
+    console.log(event);
   }
 }

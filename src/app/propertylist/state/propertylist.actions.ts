@@ -9,10 +9,11 @@ export enum PropertyActionTypes {
 
 export class LoadProperties implements Action {
   readonly type = PropertyActionTypes.LoadProperties;
+  constructor(public payload: { limit: number; offset: number }) {}
 }
 export class LoadPropertiesSuccess implements Action {
   readonly type = PropertyActionTypes.LoadPropertiesSuccess;
-  constructor(public payload: { data: IProperty[] }) {}
+  constructor(public payload: { data: any }) {}
 }
 export class LoadPropertiesFailure implements Action {
   readonly type = PropertyActionTypes.LoadPropertiesFailure;

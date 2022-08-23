@@ -25,8 +25,8 @@ export class PropertyDetailsEffects {
   loadProperties$ = createEffect(() =>
     this.actions$.pipe(
       ofType(propertyActions.PropertyActionTypes.LoadPropertiesDetails),
-      mergeMap((action) =>
-        this.propertiesDetailsService.getPropertyDetails().pipe(
+      mergeMap((data: propertyActions.LoadPropertiesDetails) =>
+        this.propertiesDetailsService.getPropertyDetails(data.payload.id).pipe(
           map(
             (users) => new propertyActions.LoadPropertiesDetailsSuccess(users)
           ),

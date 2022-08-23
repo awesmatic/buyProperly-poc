@@ -2,18 +2,21 @@
   <app-header></app-header>
   <div class="container">
     <div class="image">
-      <img
-        src="https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?cs=srgb&dl=pexels-binyamin-mellish-186077.jpg&fm=jpg"
-        alt="image"
-      />
+      <img src="{{ propertiesDetails.img_src_main }}" alt="image" />
     </div>
     <div class="details">
       <div class="top-details">
-        <h1>Huston US</h1>
-        <h1>Back to properties</h1>
+        <h1>{{ propertiesDetails.address_area }}</h1>
+        <!-- <h1>Back to properties</h1> -->
+        <button
+          style="background-color: #f5d442"
+          [routerLink]="['/property-list']"
+        >
+          Back to properties
+        </button>
       </div>
       <div>
-        <h2>15000 W Airport Blvd, Sugarland, Texas, 77498</h2>
+        <h2>{{ propertiesDetails.address }}</h2>
       </div>
       <div class="second-details">
         <h3>Multi Family Residential</h3>

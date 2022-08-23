@@ -5,7 +5,7 @@ import { PropertyActions, PropertyActionTypes } from './propertylist.actions';
 export const propertyListFeatureKey = 'PropertiesState';
 
 export interface PropertiesListState {
-  properties: IProperty[];
+  properties: any;
   error: string;
 }
 export const initialState: PropertiesListState = {

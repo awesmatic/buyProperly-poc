@@ -5,14 +5,36 @@
       <h2 [routerLink]="['/']">BUYPROPERLY</h2>
     </div>
     <div class="details">
-      <h2 [routerLink]="['/property-list']">View Properties</h2>
-      <h2 [routerLink]="['/property-detail']">How it Works</h2>
-      <h2>About us</h2>
-      <h2>Resource Center</h2>
-    </div>
-    <div class="buttons">
-      <button class="loginButton" [routerLink]="['/login']">Login</button>
-      <button class="startButton">Get Started</button>
+      <div>
+        <h2 [routerLink]="['/property-list']">View Properties</h2>
+      </div>
+      <div class="buttons">
+        <button
+          *ngIf="changeButton"
+          class="loginButton"
+          (click)="logoutHandler()"
+        >
+          Logout
+        </button>
+        <button
+          *ngIf="!changeButton"
+          class="loginButton"
+          [routerLink]="['/login']"
+        >
+          Login
+        </button>
+      </div>
+      <div class="language-picker-area">
+        <div class="picker-label">
+          {{ "choose-language" | translate }}
+          <!-- choose language -->
+          <select (change)="selectLanguage($event)" class="language-picker">
+            <option value="en-US">English</option>
+            <option value="fr-FR">French</option>
+            <option value="de-DE">German</option>
+          </select>
+        </div>
+      </div>
     </div>
   </div>
 </div>
