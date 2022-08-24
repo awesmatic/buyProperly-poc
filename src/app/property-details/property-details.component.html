@@ -23,17 +23,21 @@
         <h3>Primary Listing</h3>
       </div>
       <div class="third-details">
-        <div>
+        <div *ngIf="propertiesDetails.funding_target">
           <h2>Funding Amount (USD)</h2>
-          <h2>$1,034,100</h2>
+          <h2>${{ propertiesDetails.funding_target }}</h2>
         </div>
-        <div>
+        <div *ngIf="propertiesDetails.total_term">
           <h2>Project Term</h2>
-          <h2>$1,034,100</h2>
+          <h2>{{ propertiesDetails.total_term }}</h2>
         </div>
-        <div>
+        <div *ngIf="propertiesDetails.gross_rental_yield">
+          <h2>Projected Gross Rental Yield</h2>
+          <h2>{{ propertiesDetails.gross_rental_yield }}</h2>
+        </div>
+        <div *ngIf="propertiesDetails.projected_annual_returns_min">
           <h2>Projected Annual ROI</h2>
-          <h2>17.6%</h2>
+          <h2>{{ propertiesDetails.projected_annual_returns_min }}%</h2>
         </div>
       </div>
       <div class="forth-details">

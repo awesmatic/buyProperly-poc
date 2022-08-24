@@ -11,21 +11,27 @@
       class="property"
       [routerLink]="['/property-detail/' + item.property_slurp]"
     >
-      <div class="image">
+      <div *ngIf="item.img_src_main" class="image">
         <img src="{{ item.img_src_main }} " alt="1" />
       </div>
       <h1 *ngIf="item.is_multi_family_residential">Multi Family Residential</h1>
       <h1 *ngIf="item.is_preconstruction_property">Campground</h1>
       <h1 class="black">value Added Property</h1>
       <div class="project-details">
-        <p>Total Offering</p>
-        <p>Project Term</p>
-        <p>Projected Annual Roi</p>
+        <p *ngIf="item.total_offering">Total Offering</p>
+        <!-- <p *ngIf="item.purchase_price">Purchase Price</p> -->
+        <p *ngIf="item.total_term">Project Term</p>
+        <p *ngIf="item.projected_annual_returns_min">Projected Annual Roi</p>
+        <p *ngIf="item.gross_rental_yield">Projected Gross Rental Yield</p>
       </div>
       <div class="project-details-info">
-        <p>200,000</p>
-        <p>3 years</p>
-        <p>36.6%</p>
+        <p *ngIf="item.purchase_price">${{ item.purchase_price }}</p>
+        <!-- <p *ngIf="item.total_offering">${{ item.total_offering }}</p> -->
+        <p *ngIf="item.total_term">{{ item.total_term }}</p>
+        <p *ngIf="item.projected_annual_returns_min">
+          {{ item.gross_rental_yield }}
+        </p>
+        <p>{{ item.projected_annual_returns_min }}</p>
       </div>
       <div class="button">
         <button>Invest Now</button>

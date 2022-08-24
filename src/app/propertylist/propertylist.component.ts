@@ -15,7 +15,7 @@ import * as fromPropertyList from './state/propertylist.reducer';
 export class PropertylistComponent implements OnInit {
   errorMessage = '';
   propertiesList: any = [];
-  page: number = 1;
+  page: number = 0;
   count: number = 0;
   tableSize: number = 10;
   // propertiesList: Observable<IProperty[]> | undefined;
@@ -47,7 +47,7 @@ export class PropertylistComponent implements OnInit {
     this.store.dispatch(
       new PropertyActions.LoadProperties({
         limit: this.tableSize,
-        offset: this.page - 1,
+        offset: this.page,
       })
     );
     this.store
@@ -62,6 +62,6 @@ export class PropertylistComponent implements OnInit {
   onTableDataChange(event: any) {
     this.page = event;
     this.postList();
-    console.log(event);
+    // console.log(event);
   }
 }

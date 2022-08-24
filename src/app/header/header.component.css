@@ -33,6 +33,7 @@
   font-size: large;
   font-weight: 600;
   padding: 0.8rem 1.5rem;
+  cursor: pointer;
 }
 .startButton {
   border-radius: 10px;

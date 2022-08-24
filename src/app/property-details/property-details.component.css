@@ -52,4 +52,5 @@ button {
   margin: 1rem;
   border-radius: 10px;
   background-color: dodgerblue;
+  cursor: pointer;
 }
